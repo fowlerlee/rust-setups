@@ -1,8 +1,0 @@
-/Users/lee/rust/proj2/ser_des/target/debug/deps/unicode_ident-fc4b6de9a89eecee.rmeta: /Users/lee/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-ident-1.0.1/src/lib.rs /Users/lee/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-ident-1.0.1/src/tables.rs
-
-/Users/lee/rust/proj2/ser_des/target/debug/deps/libunicode_ident-fc4b6de9a89eecee.rlib: /Users/lee/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-ident-1.0.1/src/lib.rs /Users/lee/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-ident-1.0.1/src/tables.rs
-
-/Users/lee/rust/proj2/ser_des/target/debug/deps/unicode_ident-fc4b6de9a89eecee.d: /Users/lee/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-ident-1.0.1/src/lib.rs /Users/lee/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-ident-1.0.1/src/tables.rs
-
-/Users/lee/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-ident-1.0.1/src/lib.rs:
-/Users/lee/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-ident-1.0.1/src/tables.rs:
