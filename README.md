@@ -1,4 +1,4 @@
-# rust-setups
+# RUST SETUPS
 
 ## Welcome
 Welcome to the rust setups repo for commond rust patterns in different domains. You might find some web frontend code here and there and perhaps some bash as well. Its mostly rust though.
