@@ -124,7 +124,6 @@ impl<'de> Deserialize<'de> for KubeConfig {
     }
 }
 
-
 fn main() {
     let c = KubeConfig {
         port: 10,
