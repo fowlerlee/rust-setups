@@ -4,7 +4,6 @@ extern crate serde_test;
 
 use serde::de::{self, Deserialize, Deserializer, MapAccess, Visitor};
 use serde::ser::{Serialize, SerializeStruct, Serializer};
-
 use std::fmt;
 
 #[derive(Debug, PartialEq)]
