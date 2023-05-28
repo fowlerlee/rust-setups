@@ -1,6 +1,6 @@
 use std::cell::UnsafeCell;
 use std::sync::atomic::Ordering::{Acquire, Release};
-use std::sync::atomic::{AtomicBool, AtomicU64};
+use std::sync::atomic::{AtomicBool};
 
 pub struct SpinLock<T> {
     locked: AtomicBool,
@@ -23,7 +23,8 @@ impl<T> SpinLock<T> {
         }
         unsafe { &mut *self.value.get() }
     }
-    ///`# Safety`check is needed here
+
+    #[doc = r"Safety : unsafe unlocking of the lock, can give undefined behaviour"]
     pub unsafe fn unlock(&self) {
         self.locked.store(false, Release)
     }
