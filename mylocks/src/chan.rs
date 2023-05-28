@@ -7,6 +7,12 @@ pub struct Channel<T> {
     item_ready: Condvar,
 }
 
+impl<T> Default for Channel<T> {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl<T> Channel<T> {
     pub fn new() -> Self {
         Self {

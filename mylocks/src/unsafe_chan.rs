@@ -18,6 +18,7 @@ impl<T> Channel<T> {
         }
     }
 
+    #[doc = r"Safety : unsafe send, can give undefined behaviour"]
     pub unsafe fn send(&self, message: T) {
         (*self.message.get()).write(message);
         self.ready.store(true, Release)
@@ -27,6 +28,7 @@ impl<T> Channel<T> {
         self.ready.load(Acquire)
     }
 
+    #[doc = r"Safety : unsafe receive, can give undefined behaviour"]
     pub unsafe fn receive(&self) -> T {
         (*self.message.get()).assume_init_read()
     }
