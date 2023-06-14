@@ -8,6 +8,7 @@ use uuid::*;
 
 #[allow(unused_imports)]
 use std::{env, sync::Arc, thread, time::Duration};
+
 #[allow(unused_imports)]
 use zookeeper::{recipes::leader::LeaderLatch, WatchedEvent, Watcher, ZooKeeper};
 
@@ -29,6 +30,11 @@ impl Watcher for MailWatcher {
 pub fn create_zookeeper() -> ZooKeeper {
     let addr = "localhost:2181";
     ZooKeeper::connect(addr, Duration::from_secs(3), MailWatcher).unwrap()
+}
+
+pub fn create_znode(path: &str, zk: ZooKeeper) {
+    let data = vec![0..255u8];
+    // zk.create(path, data, acl, mode)
 }
 
 pub fn create_latch(zk: ZooKeeper) -> LeaderLatch {
@@ -132,8 +138,11 @@ mod tests {
     #[test]
     fn test_zookeeper() {
         let zk = create_zookeeper();
-        let latch = create_latch(zk);
-        // latch.start();
-        print!("ran test");
+        let latch = create_latch(zk).start().unwrap();
+        println!("ran test");
     }
+
+    #[test]
+    #[ignore]
+    fn createZnodeShould() {}
 }
