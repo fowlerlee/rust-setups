@@ -149,14 +149,16 @@ mod tests {
     }
 
     #[test]
-    fn createZnodeShould() {
-        let v = vec![0u8];
+    fn createZnodeAttachToZookeeper() {
+        let t = thread::spawn(move ||{
+            let v = vec![0u8];
+            let acl = Acl::new(Permission::CREATE, "scheme", (1));
+            let vec_acl = vec![acl];
+            let mode = CreateMode::EphemeralSequential;
+            let result = create_zookeeper().create("localhost:2181", v, vec_acl, mode);
+            println!("result: {:?}", result);
 
-        let acl = Acl::new(Permission::CREATE, "scheme", (1));
-        let vec_acl = vec![acl];
-        let mode = CreateMode::Ephemeral;
-        let result = create_zookeeper().create("localhost:2181", v, vec_acl, mode);
-        println!("result: {:?}", result);
-
+        });
+        t.join().unwrap();
     }
 }
