@@ -8,14 +8,19 @@ use uuid::*;
 
 #[allow(unused_imports)]
 use std::{env, sync::Arc, thread, time::Duration};
+use std::cell::RefCell;
+use std::rc::Rc;
 
-#[allow(unused_imports)]
+
 use zookeeper::{recipes::leader::LeaderLatch, WatchedEvent, Watcher, ZooKeeper};
+use zookeeper::*;
 
 #[derive(Default, Clone)]
 pub struct Notification {
     alert: String,
 }
+
+
 
 //create watcher
 #[derive(Default, Clone, Debug)]
@@ -136,6 +141,7 @@ mod tests {
     }
 
     #[test]
+    #[ignore]
     fn test_zookeeper() {
         let zk = create_zookeeper();
         let latch = create_latch(zk).start().unwrap();
@@ -143,6 +149,14 @@ mod tests {
     }
 
     #[test]
-    #[ignore]
-    fn createZnodeShould() {}
+    fn createZnodeShould() {
+        let v = vec![0u8];
+
+        let acl = Acl::new(Permission::CREATE, "scheme", (1));
+        let vec_acl = vec![acl];
+        let mode = CreateMode::Ephemeral;
+        let result = create_zookeeper().create("localhost:2181", v, vec_acl, mode);
+        println!("result: {:?}", result);
+
+    }
 }
