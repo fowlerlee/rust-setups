@@ -9,6 +9,16 @@ struct Node {
     pub value: Option<Document>
 }
 
+impl Node {
+    pub fn new(key: i128, doc: Document)  -> Self {
+        Self { 
+            key:key,
+            next: HashMap::new(),
+            value: Option::Some(doc),
+         }
+    }
+}
+
 #[derive(Clone, Debug)]
 pub struct Document {
     pub numerical_id: u64,
