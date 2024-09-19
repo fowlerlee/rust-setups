@@ -1,6 +1,6 @@
 pub const EPOLL_CTL_ADD: i32 = 1;
 pub const EPOLLIN: i32 = 0x1;
-pub const EPOOLET: i32 = 1 << 31;
+pub const EPOLLET: i32 = 1 << 31;
 
 #[link(name = "c")]
 extern "C" {
@@ -12,7 +12,8 @@ extern "C" {
 }
 
 #[derive(Debug)]
-#[repr(C, packed)]
+#[repr(C)]
+#[cfg_attr(target_arch = "x86_64", repr(packed))]
 pub struct Event {
     pub(crate) events: u32,
     //the id token for the event
